@@ -12,7 +12,7 @@
         <nav>
             <div class="nav-left">
                 <a href="#" class="logo">
-                    <img src="/Users/aris/Documents/Mesh/Trumpf_logo_270px.png" alt="Logo">
+                    <img src="resources/Trumpf_logo_270px.png" alt="Logo">
                 </a>
                 <ul>
                     <li><a href="#">Produkte</a></li>
@@ -48,14 +48,24 @@
             <!-- Add more content as needed -->
             <div class="device-list">
                 <div class="device">
-                    <div class="device-info">
+                    <!-- Text-Container für die linke Spalte -->
+                    <div class="device-details">
+                      <div class="device-info">
                         <span class="status-indicator"></span>
                         <span class="device-name">Trumpf Laser Nr. 1</span>
+                      </div>
+                      <div class="last-login">Zuletzt funktionsfähig, 11. September 200</div>
+                      <div class="seriennummer">SN: SH4RMUT4</div>
+                      <button class="chat-button" onclick="openChat()">Auswählen</button>
                     </div>
-                    <div class="last-login">Zuletzt funktionsfähig, 11. September 200</div>
-                    <div class="seriennummer">SH4RMUT4</div>
-                    <button class="chat-button" onclick="openChat()">Behebe Problem</button>
-                </div>
+                    
+                    <!-- Bild-Container für die rechte Spalte -->
+                    <div class="device-image">
+                      <img src="resources/cnclatheuniversalturningcenterc4dmodel001.jpg" alt="Gerätebild">
+                    </div>
+                  </div>
+                  
+                  
                 <p></p>
                 <div class="device">
                     <div class="device-info">
@@ -63,8 +73,8 @@
                         <span class="device-name">Trumpf Theo Frese Nr. 2</span>
                     </div>
                     <div class="last-login">Zuletzt funktionsähig, 20. April 1889</div>
-                    <div class="seriennummer">K12H445</div>
-                    <button class="chat-button" onclick="openChat()">Behebe Problem</button>
+                    <div class="seriennummer">SN: K12H445</div>
+                    <button class="chat-button" onclick="openChat()">Auswählen</button>
                 </div>
                 <p></p>
                 <div class="device">
@@ -74,8 +84,8 @@
                     </div>
 
                     <div class="last-login">Zuletzt funktionsähig, 2000 BC</div>
-                    <div class="seriennummer">B1C2C2</div>
-                    <button class="chat-button" onclick="openChat()">Behebe Problem</button>
+                    <div class="seriennummer">SN: B1C2C2</div>
+                    <button class="chat-button" onclick="openChat()">Auswählen</button>
                     <div id="chatPopup" class="chat-popup">
                         <div class="chat-content">
                             <span class="close" onclick="schließeChat()">&times;</span>
@@ -101,3 +111,4 @@
 </body>
 
 </html>
+
