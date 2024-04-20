@@ -10,61 +10,60 @@ from pymilvus import (
     Collection,
 )
 from sentence_transformers import SentenceTransformer 
-import json
+
+def query_question(question, collection_milvus, model):
+
+    question_embedding = model.encode([question])
+
+    search_params = {
+        "metric_type": "L2",
+        "params": {"nprobe": 10},
+    }
+
+    result = collection_milvus.search(question_embedding, "embeddings", search_params, limit=5, output_fields=["content", "pagelabel"])
 
 
-version_name = "test_v19"
+    # getting the content from the search query 
+    """
+    for hits in result:
+        for hit in hits:
+            print(hit.entity.get("content"))
+            print(f"page: https://www.trumpf.com/filestorage/TRUMPF_US/Landingpages/TruLaser_2030_fiber/pdfs/TruLaser-2030-Pre-Install-Manual.pdf#page={hit.entity.get('pagelabel')}")
+            print("------------")
 
-fmt = "\n=== {:30} ===\n"
-search_latency_fmt = "search latency = {:.4f}s"
-num_entities, dim = 3000, 768
-
-print(fmt.format("start connecting to Milvus"))
-connections.connect("default", host="localhost", port="19530")
-
-
-collection_name = "test_v19"
-collection_milvus = Collection(name=collection_name)  # Get the collection object
-collection_milvus.load()  # Load the collection into memory
+    # make the question to a vector
+    """
+    return result
 
 
+def search_db(question):
+    # num_entities = 3000
+    # dim = 768 # dim of the embeddings
+    collection_name = "test_new_bookv2"
 
-# get embedding model
-model = SentenceTransformer('distilbert-base-nli-mean-tokens')
-dimension = dim
-normalize_embeddings = True
+    # connecting to localhost db
+    connections.connect("default", host="localhost", port="19530")
+
+    collection_milvus = Collection(name=collection_name)  # Get the collection object
+    collection_milvus.load()  # Load the collection into memory
+
+    # get embedding model
+    model = SentenceTransformer('distilbert-base-nli-mean-tokens')
+
+    collection_milvus.load()
+
+    results = query_question(question, collection_milvus, model)
 
 
 
-# -------------------
-# Query Question...
-
-print(fmt.format("Start loading"))
-collection_milvus.load()
+    return results
 
 
-# asking milvus
 
-question = input("ask question:\n")
+print("\n")
+found = search_db("What is the Error Number 40300?")
 
-question_embedding = model.encode([question])
-
-print(fmt.format("Start searching based on vector similarity"))
-
-search_params = {
-    "metric_type": "L2",
-    "params": {"nprobe": 10},
-}
-
-# start_time = time.time()
-result = collection_milvus.search(question_embedding, "embeddings", search_params, limit=3, output_fields=["content", "pagelabel"])
-# end_time = time.time()
-
-for hits in result:
+for hits in found:
     for hit in hits:
+        print("\n")
         print(hit.entity.get("content"))
-        print(f"page: https://www.trumpf.com/filestorage/TRUMPF_US/Landingpages/TruLaser_2030_fiber/pdfs/TruLaser-2030-Pre-Install-Manual.pdf#page={hit.entity.get('pagelabel')}")
-        print("------------")
-# print(search_latency_fmt.format(end_time - start_time))
-
-# make the question to a vector
