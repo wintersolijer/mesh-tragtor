@@ -13,7 +13,7 @@ from pymilvus import (
 from PyPDF2 import PdfReader   # or any other PDF processing library
 from sentence_transformers import SentenceTransformer 
 
-version_name = "test_v19"
+version_name = "test_new_bookv2"
 
 fmt = "\n=== {:30} ===\n"
 search_latency_fmt = "search latency = {:.4f}s"
@@ -32,10 +32,28 @@ fields = [
 
 schema = CollectionSchema(fields, "hello_milvus is the simplest demo to introduce the APIs")
 
-print(fmt.format("Create collection `hello_milvus`"))
+print(fmt.format(f"Create collection {version_name}"))
 hello_milvus = Collection(version_name, schema, consistency_level="Strong")
 
 # Function to extract text from PDF and convert to embeddings
+# def process_pdf(pdf_path):
+#     with open(pdf_path, 'rb') as file:
+#         reader = PdfReader(file)
+#         text_arr = []
+#         page_numbers = []
+#         for page_num in range(len(reader.pages)):
+#             page_split_num = 4
+#             page_text_arr = split_text_into_parts(reader.pages[page_num].extract_text())
+#             page_text = ' '.join(page_text_arr)
+            
+            
+#             splitted_text = split_text_into_parts(page_text, page_split_num)
+#             for i in range(page_split_num):
+#                 page_numbers.append(page_num+1)
+#                 text_arr.append(splitted_text[i])
+            
+#         return text_arr, page_numbers
+    
 def process_pdf(pdf_path):
     with open(pdf_path, 'rb') as file:
         reader = PdfReader(file)
@@ -43,14 +61,38 @@ def process_pdf(pdf_path):
         page_numbers = []
         for page_num in range(len(reader.pages)):
             page_numbers.append(page_num+1)
-            text_arr.append(reader.pages[page_num].extract_text())
+            page_text_arr = split_text_into_parts(reader.pages[page_num].extract_text())
+            page_text = ' '.join(page_text_arr)
+            text_arr.append(page_text)
+                
+                
+            
         return text_arr, page_numbers
 
+def split_text_into_parts(text, num_parts=4):
+    words = text.split()
+    total_words = len(words)
 
+    part_size = total_words // num_parts
+
+    parts = []
+    # Create each part
+    for i in range(num_parts):
+        # Calculate the start index of this part
+        start_index = i * part_size
+        # Calculate the end index of this part
+        if i == num_parts - 1:
+            # Last part includes any remaining words
+            end_index = total_words
+        else:
+            end_index = start_index + part_size
+        # Extract the words for this part and join them into a string
+        parts.append(' '.join(words[start_index:end_index]))
+    return parts
 
 
 # Sample usage:
-pdf_path = "TruLaser-2030-Pre-Install-Manual.pdf"  # Replace with your PDF file path
+pdf_path = "TRUMPF_Manual_TruConvert_DC_1030.pdf"  # Replace with your PDF file path
 pdf_text_arr, page_num_arr = process_pdf(pdf_path)
 
 # Convert text to embeddings
@@ -88,11 +130,16 @@ index = {
 hello_milvus.create_index("embeddings", index)
 
 
+
+"""
+
 # -------------------
 # Query Question...
 
 print(fmt.format("Start loading"))
 hello_milvus.load()
+
+
 
 
 # asking milvus
@@ -118,3 +165,5 @@ for hits in result:
 print(search_latency_fmt.format(end_time - start_time))
 
 # make the question to a vector
+
+"""
