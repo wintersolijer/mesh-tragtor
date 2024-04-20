@@ -11,6 +11,7 @@ def index():
 def button():
     user_input = request.form['userinput']
     
+    # no input for not using tokens 
     # rag_response = {
     #     "llm_response": "test things",
     #     "pagelabel": 5

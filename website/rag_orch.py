@@ -20,7 +20,7 @@ def doRAG(question):
     
     response_json = {
         "llm_response": llm_response,
-        "pagelabel": pages[0]
+        "pagelabel": pages
     }
     
     return response_json
