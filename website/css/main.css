@@ -1,14 +1,75 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #dbdbdb;
     margin: 0;
     padding: 0;
-    color: #333;
 }
 
-header {
+.list {
+    margin: 60px 10px 40px 30px;
+}
+
+#truservices {
+    font-family: "ITC Avant Garde Gothic Std";
+    border-bottom: 1px solid rgb(177, 177, 177);
+}
+
+.content > p {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.2em;
+}
+
+.content > button {
+    padding: 1em;
+    background-color: #0033ba;
+    color: white;
+    border: none;
+    transition: background-color, box-shadow 0.4s;
+    border-radius: 6px;
+}
+
+.content > button:hover {
+    background-color: #5b7cd6;
+    transition: background-color, 0.4s;
+    box-shadow: none;
+}
+
+.navigation > li {
+    margin-right: 2em;
+    padding-right: 2em; 
+    color: black;
+    font-size: 1.2em;
+    font-family: "ITC Avant Garde Gothic Std";
+    transition: color 0.4s;
+    border-right: 1px solid grey;
+}
+
+
+
+.nav-right > a {
+    margin-left: 1em;
+    padding-left: 1.75em;
+    color: black;
+    transition: color 0.4s;
+    border-left: 1px solid grey;
+}
+.nav-right > a:hover {
+    margin-left: 1em;
+    padding-left: 1.75em;
+    color: rgb(65, 65, 65);
+    transition: color 0.4s;
+}
+
+.navigation > li:hover {
+    font-family: "ITC Avant Garde Gothic Std";
+    color: rgb(88, 88, 210);
+    cursor: pointer;
+    transition: color 0.4s;
+}
+
+.header {
     background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: fixed;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2);
     width: 100%;
     top: 0;
     z-index: 1000;
@@ -21,232 +82,237 @@ nav {
     padding: 10px 20px;
 }
 
-.nav-left .logo {
-    font-weight: bold;
-    margin-right: 30px;
+.nav-left .logo img {
+    height: 50px;
+    vertical-align: middle;
 }
 
-.nav-left ul {
+.nav-left ul, .nav-right {
     list-style: none;
     display: flex;
     margin: 0;
     padding: 0;
 }
 
-.nav-left ul li a {
+.nav-left ul li a, .nav-right a {
+    text-decoration: none;
     margin-right: 20px;
-    text-decoration: none;
-    color: #333;
-}
-
-.nav-right a {
-    text-decoration: none;
-    color: #333;
-    margin-left: 20px;
 }
 
 main {
-    display: flex;
     margin-top: 60px;
-    /* Adjust the value to the height of your header */
-    flex-direction: row-reverse;
-    /* Reverses the order of the flex items */
-}
-
-aside {
-    width: 20%;
-    background-color: #f7f7f7;
-    padding: 20px;
-    height: calc(100vh - 60px);
-    /* Adjust the value to the height of your header */
-    box-shadow: -1px 0 0 rgba(0, 0, 0, 0.1);
-}
-
-.content {
-    width: 80%;
-    padding: 20px;
-}
-
-.logo img {
-    height: 50px;
-    /* Oder jede andere gewünschte Größe */
-    vertical-align: middle;
-}
-
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #0033ba;
-    color: white;
-}
-
-.nav-left ul,
-.nav-right {
-    display: none;
-}
-
-aside,
-.content {
-    order: 1;
-    width: 100%;
-    margin: 0;
-}
-
-aside {
-    position: relative;
-    height: auto;
-    color: black;
-}
-
-.content {
-    padding: 10px;
-    border-bottom: 2px solid #1d1d91;
-    border-right: 4px solid rgb(147, 147, 213);
-}   
-
-body {
-    background-color: #e3e3e3;
-    font-family: Arial, sans-serif;
-    color: #0033ba;
-}
-
-.device-list {
-    width: 100%;
-    margin: 20px ;
     display: flex;
-    flex-flow: wrap;
+    flex-direction: column;
+    padding: 20px;
 }
 
-.device {
-    background-color: white;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    box-shadow: 0px 0px 12px rgba(0,0,0,0.2);
+.content {
+    margin: 20px;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px #cbced1, /* Dark shadow on the bottom right */
+                -10px -10px 20px #ffffff; /* Light shadow on the top left */
 }
-
 .status-indicator {
     height: 10px;
     width: 10px;
-    background-color: #0f0;
+    background-color: rgb(255, 2, 2);
     border-radius: 50%;
     display: inline-block;
     margin-right: 10px;
 }
 
-.device-info {
+.chat-button {
+    background-color: #0033ba;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #0033ba;
+    color: white;
+    width: 100%;
+    bottom: 0;
+}
+
+.contact-section {
+    background-color: #f7f7f7;
+    padding: 20px;
+}
+
+.image-wrapper {
+    display: flex;
+    margin: 10px 30px;
+}
+
+.image-wrapper > img {
+    height: 190px;
+    width: 190px;
+}
+
+#logo {
+    width: 5em;
+    height: 5em;
+}
+
+.device-list {
+    display: flex;
+    flex-flow: row nowrap; 
+    overflow-x: auto;
+    padding: 20px; /* Dies fügt einen Padding am Anfang und Ende der Liste hinzu. */
+}
+
+.device {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin-right: 20px; /* Margin zwischen den Geräten */
+    box-shadow: 8px 14px 38px rgba(39, 44, 55, .06), 1px 3px 8px rgba(39, 44, 55, .03);
+    height: 15vh;
+    width: calc(40% - 20px); /* Berechnet 40% der .device-list Breite minus den margin-right */
+    min-width: calc(40% - 20px); /* Stellt sicher, dass die Größe nicht unter 40% minus margin fällt */
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box; /* Sorgt dafür, dass Padding und Border innerhalb der Breite inkludiert sind */
+}
+
+/* Anpassung für den letzten Geräte-Container, um den zusätzlichen rechten Margin zu entfernen */
+.device:last-child {
+    margin-right: 0;
+}
+
+/* Optional: Stellen Sie sicher, dass die .device-list Containergröße alle .device Elemente und das Padding umfasst */
+.device-list {
+    width: auto;
+    justify-content: flex-start;
+}
+
+
+.device-image > img {
+    width: 180px;
+    margin: 0.4em 1.4em;
+    border-radius: 10px; /* Abgerundete Ecken für das Bild */
+    box-shadow: 
+        0 10px 30px rgba(39, 44, 55, .2), /* Haupt-Schatten */
+        0 2px 6px rgba(39, 44, 55, .05); /* Feiner Schatten für mehr Dimension */
+}
+
+
+/* Stellen Sie sicher, dass die Bilder und Texte gut ausgerichtet sind */
+.device-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.device-info, .seriennummer {
+    margin-bottom: 5px; /* Etwas Abstand zwischen den Textelementen */
+}
+
+.last-login {
     margin-bottom: 5px;
+    font-style: italic;
+}
+
+/* Hide scrollbar */
+.device-list {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.device-list::-webkit-scrollbar {
+    display: none; /* WebKit browsers */
+}
+
+aside {
+    min-height: 200px;;
 }
 
 .device-name {
     font-weight: bold;
+    text-transform: uppercase;
 }
 
-.last-login {
-    font-size: 0.8em;
-    color: #aaa;
-}
-
-.logout-button {
-    background-color: #0057B7;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 0.8em;
-    margin: 2px 2px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-/* styles.css */
 .chat-popup {
-    display: none;
     position: fixed;
-    bottom: 0;
-    right: 15px;
-    border: 1px solid #888;
-    z-index: 9;
-    background-color: rgb(199, 52, 52);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+    border: 2px solid black;
 }
 
-.chat-content {
-    margin: 5px;
+.chat-popup-content {
+    position: relative; /* Setzt das chat-popup-content Div als Bezugspunkt für absolute Positionierung */
+    display: flex;
+    width: 80%;
+    height: 70%;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 20px 30px rgba(0,0,0,0.15);
+    overflow: hidden;
+    z-index: 1001; /* Sorgt dafür, dass das Popup über anderen Inhalten liegt */
+}
+
+.chat-info {
+    width: 30%;
     padding: 20px;
+    background-color: rgba(0,0,0,0.2); /* Weißer Hintergrund für wichtige Infos */
+    overflow-y: auto;
 }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
+.close-chat-btn {
+    position: absolute;
+    top: 4px; /* Adjustiert, um das Kreuz innerhalb des chat-popup-content Divs zu positionieren */
+    right: 4px; /* Adjustiert, um das Kreuz innerhalb des chat-popup-content Divs zu positionieren */
+    font-size: 25px;
     cursor: pointer;
+    background-color: rgba(0,0,0,0);
+    color: black;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white; /* Fügt einen weißen Rand hinzu, um das Kreuz vom Hintergrund abzuheben */
+    z-index: 1000;
+}
+.chat-window {
+    width: 70%;
+    background-color: #fff; /* Normaler Hintergrund für die rechte Spalte */
+    display: flex;
+    flex-direction: column; 
 }
 
-/* CSS */
-.chat-button {
-  appearance: button;
-  background-color: #0033ba;
-  border: 1px solid #1652F0;
-  border-radius: 4px;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  cursor: pointer;
-  font-family: Graphik,-apple-system,system-ui,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
-  font-size: 14px;
-  line-height: 1.15;
-  overflow: visible;
-  padding: 12px 16px;
-  position: relative;
-  text-align: center;
-  text-transform: none;
-  transition: all 80ms ease-in-out;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: fit-content;
+.chat-messages {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff; /* Weißer Hintergrund für den Chatverlauf */
+    border-bottom: 1px solid rgba(0,0,0,0.6); /* Blaue Akzentlinie zwischen Nachrichten und Eingabefeld */
+    overflow-y: auto;
 }
 
-.chat-button:disabled {
-  opacity: .5;
-}
-
-.chat-button:focus {
-  outline: 0;
-}
-
-.chat-button:hover {
-  background-color: #0A46E4;
-  border-color: #0A46E4;
-}
-
-.chat-button:active {
-  background-color: #0039D7;
-  border-color: #0039D7;
-}
-
-.device {
-    display: flex;;
-  }
-  
-.device-details {
-/* Nehmen Sie an, dass die linke Spalte 70% der Breite einnimmt */
-flex: 0 0 30%;
-}
-
-img {
-    width: 40%;
-    height: auto;
+.chat-input {
+    background-color: #333; /* Dunkelgrauer Hintergrund für das Eingabefeld */
+    color: #fff; /* Weiße Textfarbe für das Eingabefeld */
+    border: none;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.2); /* Heller innerer Schatten */
 }
 
