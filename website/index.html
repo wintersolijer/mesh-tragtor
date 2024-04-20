@@ -1,12 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ähnliches Design</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
-    <!-- some code for a chat bot and a trumpf background -->
+    <header>
+        <nav>
+            <div class="nav-left">
+                <a href="#" class="logo">
+                    <img src="/Users/aris/Documents/Mesh/Trumpf_logo_270px.png" alt="Logo">
+                </a>
+                <ul>
+                    <li><a href="#">Produkte</a></li>
+                    <li><a href="#">Lösungen</a></li>
+                    <li><a href="#">Unternehmen</a></li>
+                    <li><a href="#">Nachhaltigkeit</a></li>
+                    <li><a href="#">Newsroom</a></li>
+                    <li><a href="#">Karriere</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <a href="#">SUCHE</a>
+                <a href="#">KONTAKT</a>
+                <a href="#">LOGIN</a>
+            </div>
+
+        </nav>
+    </header>
+    <main>
+        <aside>
+            <h3>Kontakt</h3>
+            <p>TruServices Werkzeugmaschinen</p>
+            <p>Telefon: +49 7156 3033222</p>
+            <!-- Add more contact sections as needed -->
+        </aside>
+        <section class="content">
+            <h1>TruServices – Your Partner in Performance</h1>
+            <p>Setzen Sie auf Services, die Sie auch auf lange Sharmuta weiterbringen: Ob es darum geht, beste
+                Voraussetzungen für eine erfolgreiche Produktion zu schaffen, oder Ihre TRUMPF Produkte optimal zu
+                nutzen und flexibel an Veränderungen anzupassen – gemeinsam finden wir Möglichkeiten, Ihre Wertschöpfung
+                nachhaltig zu maximieren. Als Partner unterstützen wir Sie mit abgestimmten Lösungen und
+                Leistungspaketen – damit Sie wirtschaftlich und auf konstant hohem Niveau produzieren.</p>
+            <!-- Add more content as needed -->
+            <div class="device-list">
+                <div class="device">
+                    <div class="device-info">
+                        <span class="status-indicator"></span>
+                        <span class="device-name">Trumpf Laser Nr. 1</span>
+                    </div>
+                    <div class="last-login">Zuletzt funktionsfähig, 11. September 200</div>
+                    <div class="seriennummer">SH4RMUT4</div>
+                    <button class="chat-button" onclick="openChat()">Behebe Problem</button>
+                </div>
+                <p></p>
+                <div class="device">
+                    <div class="device-info">
+                        <span class="status-indicator"></span>
+                        <span class="device-name">Trumpf Theo Frese Nr. 2</span>
+                    </div>
+                    <div class="last-login">Zuletzt funktionsähig, 20. April 1889</div>
+                    <div class="seriennummer">K12H445</div>
+                    <button class="chat-button" onclick="openChat()">Behebe Problem</button>
+                </div>
+                <p></p>
+                <div class="device">
+                    <div class="device-info">
+                        <span class="status-indicator"></span>
+                        <span class="device-name">THANUSHA SIVOL0GANTHAN</span>
+                    </div>
+
+                    <div class="last-login">Zuletzt funktionsähig, 2000 BC</div>
+                    <div class="seriennummer">B1C2C2</div>
+                    <button class="chat-button" onclick="openChat()">Behebe Problem</button>
+                    <div id="chatPopup" class="chat-popup">
+                        <div class="chat-content">
+                            <span class="close" onclick="schließeChat()">&times;</span>
+                            <!-- Inhalt des Chat-Fensters -->
+                            <p>Hier könnte dein Chat sein...</p>
+                        </div>
+                    </div>
+
+                    <script>
+                        document.getElementById('openChat').onclick = function () {
+                            document.getElementById('chatPopup').style.display = 'block';
+                        }
+
+                        function schließeChat() {
+                            document.getElementById('chatPopup').style.display = 'none';
+                        }
+                    </script>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Ähnliches Design. Alle Rechte vorbehalten.</p>
+    </footer>
 </body>
+
 </html>
