@@ -22,8 +22,14 @@ body {
 
 td{
     text-align: right;
+    font-size: 110%;
 }
 
+.messager_name_head{
+    font-size: 80%;
+    font-weight: 100;
+    color: #00000090;
+}
 
 .content > button {
     padding: 1em;
@@ -318,8 +324,23 @@ aside {
     background-color: #eeeeee;
 }
 
+.user_question_div > p, .llm_response_div > p{
+    font-size: 200%;
+}
+
+#sendMsgButton{
+    height: 4vh;
+    border-radius: none;
+    font-size: 150%;
+}
+
+
 .user_question_div{
     margin-left: 27%;
+}
+
+.user_question_div > *{
+    text-align: right;
 }
 
 .chat-messages {

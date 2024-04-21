@@ -14,7 +14,7 @@ def doRAG(question):
             context_passage += f"\n\n{hit.entity.get('content')}" 
             pages.append(hit.entity.get('pagelabel'))
     
-    prompt = f"Anser the following question: {question}. With the given context here: {context_passage}. Only use information from the context to answer the question."
+    prompt = f"Anser the following question: {question}. With the given context here: {context_passage}. Only use information from the context to answer the question. Use a maximum of 30 words."
     
     llm_response = ask_question(prompt)
     
