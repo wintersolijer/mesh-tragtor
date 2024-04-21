@@ -1,7 +1,7 @@
 from openai import OpenAI
 
 # Initialize the client with your API key
-client = OpenAI(api_key="sk-proj-9XF2OqcsGJNh8IjM5hJAT3BlbkFJVtDSoqOlVTpoKQNAiSNq")
+client = OpenAI(api_key="the-api-key")
 
 # Function to ask a question using the chat model
 def ask_question(question):
